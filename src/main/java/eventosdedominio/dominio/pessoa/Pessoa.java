@@ -35,6 +35,11 @@ public class Pessoa {
         }
     }
 
+    public void alterarNome(String nome) throws Exception {
+        validarCampoObrigatorio(nome);
+        this.nome = nome;
+    }
+
     public String getId() {
         return id;
     }

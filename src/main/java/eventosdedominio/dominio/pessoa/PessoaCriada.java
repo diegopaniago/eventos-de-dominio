@@ -1,23 +1,16 @@
 package eventosdedominio.dominio.pessoa;
 
-import org.springframework.context.ApplicationEvent;
-import org.springframework.stereotype.Component;
+import eventosdedominio.dominio.base.EventoDeDominio;
 
 import java.time.LocalDate;
 
-public class PessoaCriada extends ApplicationEvent {
+public class PessoaCriada extends EventoDeDominio {
 
-    private LocalDate data;
     private String nome;
 
     public PessoaCriada(Object source, LocalDate data, String nome) {
-        super(source);
-        this.data = data;
+        super(source, data);
         this.nome = nome;
-    }
-
-    public LocalDate getData() {
-        return data;
     }
 
     public String getNome() {
