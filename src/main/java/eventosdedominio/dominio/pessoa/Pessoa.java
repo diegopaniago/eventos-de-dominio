@@ -1,4 +1,4 @@
-package eventosdedominio.dominio;
+package eventosdedominio.dominio.pessoa;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.util.StringUtils;
