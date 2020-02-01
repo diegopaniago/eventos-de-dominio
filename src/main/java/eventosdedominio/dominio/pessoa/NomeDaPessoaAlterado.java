@@ -2,14 +2,14 @@ package eventosdedominio.dominio.pessoa;
 
 import eventosdedominio.dominio.base.EventoDeDominio;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class PessoaAlterada extends EventoDeDominio {
+public class NomeDaPessoaAlterado extends EventoDeDominio {
 
     private String nomeAntigo;
     private String nomeAtual;
 
-    public PessoaAlterada(Object source, LocalDate data, String nomeAntigo, String nomeAtual) {
+    public NomeDaPessoaAlterado(Object source, LocalDateTime data, String nomeAntigo, String nomeAtual) {
         super(source, data);
         this.nomeAntigo = nomeAntigo;
         this.nomeAtual = nomeAtual;

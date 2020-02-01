@@ -2,18 +2,18 @@ package eventosdedominio.dominio.base;
 
 import org.springframework.context.ApplicationEvent;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class EventoDeDominio extends ApplicationEvent {
 
-    private LocalDate data;
+    private LocalDateTime data;
 
-    public EventoDeDominio(Object source, LocalDate data) {
+    public EventoDeDominio(Object source, LocalDateTime data) {
         super(source);
         this.data = data;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 }

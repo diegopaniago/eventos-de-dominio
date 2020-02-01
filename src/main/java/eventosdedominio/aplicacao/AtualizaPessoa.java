@@ -1,13 +1,13 @@
 package eventosdedominio.aplicacao;
 
 import eventosdedominio.dominio.pessoa.Pessoa;
-import eventosdedominio.dominio.pessoa.PessoaAlterada;
+import eventosdedominio.dominio.pessoa.NomeDaPessoaAlterado;
 import eventosdedominio.dominio.pessoa.PessoaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class AtualizaPessoa {
@@ -21,11 +21,13 @@ public class AtualizaPessoa {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    public void atualizar(PessoaDto pessoaDto) throws Exception {
+    public void atualizarNome(PessoaDto pessoaDto) throws Exception {
         Pessoa pessoa = pessoaRepositorio.findById(pessoaDto.id).get();
-        PessoaAlterada pessoaAlterada = new PessoaAlterada(this, LocalDate.now(), pessoa.getNome(), pessoaDto.nome);
+        NomeDaPessoaAlterado nomeDaPessoaAlterado = new NomeDaPessoaAlterado(this, LocalDateTime.now(),
+            pessoa.getNome(),
+            pessoaDto.nome);
         pessoa.alterarNome(pessoaDto.nome);
         pessoaRepositorio.save(pessoa);
-        applicationEventPublisher.publishEvent(pessoaAlterada);
+        applicationEventPublisher.publishEvent(nomeDaPessoaAlterado);
     }
 }

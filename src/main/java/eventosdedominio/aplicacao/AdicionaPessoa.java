@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class AdicionaPessoa {
@@ -24,6 +24,6 @@ public class AdicionaPessoa {
     public void adicionar(PessoaDto pessoaDto) throws Exception {
         Pessoa pessoa = new Pessoa(pessoaDto.nome);
         pessoaRepositorio.save(pessoa);
-        applicationEventPublisher.publishEvent(new PessoaCriada(this, LocalDate.now(),pessoa.getNome()));
+        applicationEventPublisher.publishEvent(new PessoaCriada(this, LocalDateTime.now(), pessoa.getNome()));
     }
 }

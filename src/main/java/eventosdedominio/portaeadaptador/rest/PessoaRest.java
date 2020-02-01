@@ -32,7 +32,7 @@ public class PessoaRest {
 
     @PutMapping
     public void atualizar(PessoaDto pessoaDto) throws Exception {
-        atualizaPessoa.atualizar(pessoaDto);
+        atualizaPessoa.atualizarNome(pessoaDto);
     }
 
 }
